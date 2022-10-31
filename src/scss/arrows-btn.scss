@@ -1,0 +1,77 @@
+$color-aqua: #41F6D7;
+$color-graphite: #1B1C21;
+
+.arrows-btn {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .arrows-btn {
+        display: block;
+        align-items: center;
+        font-family: 'TT Lakes';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        color: $color-graphite;
+        margin-top: 8px;
+        margin-left: 57px;
+        padding-bottom: 34px;
+        position: relative;
+    }
+
+    .arrows-btn::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 12px;
+        width: 5.65px;
+        height: 5.65px;
+        border: 2px solid $color-aqua;
+        border-bottom: none;
+        border-left: none;
+        transform: rotate(135deg);
+    }
+
+    .arrows-btn--clicked::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 12px;
+        width: 5.65px;
+        height: 5.65px;
+        border: 2px solid $color-aqua;
+        border-bottom: none;
+        border-left: none;
+        transform: rotate(315deg);
+    }
+
+    .arrows-btn::after {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 6px;
+        width: 5.65px;
+        height: 5.65px;
+        border: 2px solid $color-aqua;
+        border-bottom: none;
+        border-left: none;
+        transform: rotate(135deg);
+
+    }
+    
+    .arrows-btn--clicked::after {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 6px;
+        width: 5.65px;
+        height: 5.65px;
+        border: 2px solid $color-aqua;
+        border-bottom: none;
+        border-left: none;
+        transform: rotate(315deg);
+    }
+}

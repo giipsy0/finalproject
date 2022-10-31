@@ -1,0 +1,17 @@
+$color-lightest-gray: #DDDDDD;
+$color-swiper-gray: #B5B6BC;
+
+.swiper-pagination-bullet {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 12px;
+	background-color: $color-lightest-gray;
+	border-radius: 50%;
+	&:last-child {
+		margin-right: 0;
+	}
+	&-active {
+		background-color: $color-swiper-gray;
+	}
+}

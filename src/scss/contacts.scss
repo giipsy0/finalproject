@@ -1,0 +1,27 @@
+$color-graphite: #1B1C21;
+
+.contacts {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	&__social-buttons {
+		display: flex;
+		gap: 16px;
+	}
+	&__email {
+		font-family: 'TT Lakes';
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		color: $color-graphite;
+		font-weight: 500;
+	}
+	&__phone-number {
+		font-family: 'TT Lakes';
+		font-size: 24px;
+		line-height: 32px;
+		letter-spacing: -0.6px;
+		color: $color-graphite;
+		font-weight: bold;
+	}
+}

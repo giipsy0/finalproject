@@ -1,0 +1,9 @@
+$color-background-gray: #F8F8F8;
+$color-white: #FFFFFF;
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: $color-white;
+}

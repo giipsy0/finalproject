@@ -1,0 +1,33 @@
+$color-graphite: #1B1C21;
+$color-gray: #7E7E82;
+
+.languages-list {
+	display: flex;
+	margin-top: 40px;
+	gap: 7px;
+	&__item-btn {
+		position: relative;
+		cursor: pointer;
+	}
+	&__text {
+		font-family: 'TT Lakes';
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		color: $color-graphite;
+		font-weight: 500;
+	}
+}
+
+input[type=radio] {
+	display: none;
+	&:checked + .languages-list__text {
+		font-family: 'TT Lakes';
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		color: $color-gray;
+		font-weight: 500;
+		cursor: pointer;
+	}
+}

@@ -1,0 +1,131 @@
+$color-graphite: #1B1C21;
+$color-bright-aqua: #41F6D7;
+
+.info {
+	display: flex;
+	flex-direction: column;
+	&__text-content {
+		margin-left: 16px;
+		margin-right: 16px;
+		margin-bottom: 16px;
+	}
+	&__text {
+		height: 100px;
+		margin-top: 0;
+		margin-bottom: 16px;
+		font-family: 'TT Lakes';
+		font-size: 14px;
+		line-height: 18px;
+		letter-spacing: 0.2px;
+		color: $color-graphite;
+		overflow: hidden;
+		box-sizing: content-box;
+		transition: 0.8s;
+	}
+	&__readmore {
+		margin-left: 32px;
+		font-family: 'TT Lakes';
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		color: $color-graphite;
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			left: -16px;
+			top: 10px;
+			width: 5.65px;
+			height: 5.65px;
+			border: 2px solid $color-bright-aqua;
+			border-bottom: none;
+			border-left: none;
+			transform: rotate(135deg);
+		}
+		&--clicked::before {
+			content: '';
+			position: absolute;
+			left: -16px;
+			top: 14px;
+			width: 5.65px;
+			height: 5.65px;
+			border: 2px solid $color-bright-aqua;
+			border-bottom: none;
+			border-left: none;
+			transform: rotate(315deg);
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			left: -16px;
+			top: 4px;
+			width: 5.65px;
+			height: 5.65px;
+			border: 2px solid $color-bright-aqua;
+			border-bottom: none;
+			border-left: none;
+			transform: rotate(135deg);
+		}
+		&--clicked::after {
+			content: '';
+			position: absolute;
+			left: -16px;
+			top: 8px;
+			width: 5.65px;
+			height: 5.65px;
+			border: 2px solid $color-bright-aqua;
+			border-bottom: none;
+			border-left: none;
+			transform: rotate(315deg);
+		}
+	}
+	&__photo img {
+		display: block;
+		margin-left: 0;
+		margin-right: auto;
+		flex-shrink: 0;
+	}
+}
+
+@media screen and (min-width: 767px) {
+    .info__text-content {
+     margin-left: 24px;
+    }
+    
+     .info__text {
+         line-height: 20px;
+         padding-top: 8px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .info__photo img {
+        align-self: flex-start;
+        width: 360px;
+        height: 208px;
+        margin-left: 48px;
+        margin-right: 25px;
+        border-radius: 6px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (min-width: 1120px) {
+    .info {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .info__photo img {
+        align-self: flex-start;
+        width: 531px;
+        height: 307px;
+        margin-left: 48px;
+        margin-right: 25px;
+        border-radius: 6px;
+        margin-bottom: 49px;
+    }
+}

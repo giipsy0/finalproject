@@ -1,0 +1,147 @@
+$color-background-gray: #F8F8F8;
+$color-gray: #7E7E82;
+$color-light-aqua: #D9FFF5;
+$color-white: #fff;
+$color-graphite: #1B1C21;
+$color-shade-gray: #EAEAEA;
+
+.prices {
+	background-color: $color-background-gray;
+	&__title {
+		margin-bottom: 16px;
+		padding: 16px;
+		font-family: 'TT Lakes';
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		text-transform: uppercase;
+		color: $color-gray;
+		font-weight: 500;
+		border-top: 1px solid $color-light-aqua;
+		background: linear-gradient(270deg, $color-background-gray 0%, $color-white 98.61%);
+	}
+}
+
+@media screen and (max-width: 767px) {
+    .prices__table {
+        display: block;
+        padding-left: 8px;
+        padding-right: 8px;
+        background-color: transparent;
+        overflow: hidden;
+        max-width: 1364px;
+    }
+    
+    .prices__table-head {
+        display: none;
+    }
+    
+    .prices__table-body {
+        display: flex;
+    }
+    
+    .prices__table-row {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-shrink: 0;
+        min-width: 260px;
+        min-height: 200px;
+        padding: 16px;
+        background-color: $color-white;
+        border-radius: 6px;
+    }
+    
+    .prices__table-cell {
+        display: block;
+        font-family: 'TT Lakes';
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.2px;
+        color: $color-graphite;
+    }
+    
+    .prices__table-cell:first-child::before {
+        content: 'Ремонтные услуги';
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        color: $color-gray; 
+    }
+    
+    .prices__table-cell:nth-child(2)::before {
+        content: 'Цена';
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        color: $color-gray; 
+    }
+    
+    .prices__table-cell:nth-child(3)::before {
+        content: 'Срок';
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        color: $color-gray; 
+    }
+    
+    .prices__table-cell:last-child {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .prices__table {
+        display: table;
+        width: calc(100% - 60px);
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 14px;
+        border-collapse: collapse;
+    }
+
+    .prices__table-head {
+        font-family: 'TT Lakes';
+        font-size: 14px;
+        line-height: 16px;
+        color: $color-gray;
+        mix-blend-mode: normal;
+        opacity: 0.72;
+        text-align: left;
+    }
+
+    .prices__table-body {
+        background-color: $color-white;
+        border-left: 16px solid $color-white;
+        border-right: 16px solid $color-white;
+        border-radius: 6px;
+    }
+
+    .prices__table-body .prices__table-row {
+        border-bottom: 1px solid $color-shade-gray;
+    }
+
+    .prices__table-body .prices__table-row:last-child {
+        border-bottom: none;
+    }
+
+    .prices__table-cell {
+        padding-top: 23px;
+        padding-left: 1px;
+        padding-bottom: 23px;
+    }
+
+    .prices__table-cell:last-child {
+        padding-right: 3px;
+        text-align: right;
+    }
+}

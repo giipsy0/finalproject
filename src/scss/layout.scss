@@ -1,0 +1,10 @@
+$color-white: #F8F8F8;
+
+.layout {
+	margin: 0px auto;
+	z-index: -100;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: $color-white;
+}
