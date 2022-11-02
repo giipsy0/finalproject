@@ -1,42 +1,15 @@
-import '../scss/header.scss';
-import "../scss/arrows-btn.scss";
-import "../scss/aside.scss";
-import "../scss/aside-callback.scss";
-import "../scss/aside-feedback.scss";
-import "../scss/brands.scss";
-import "../scss/burger-close.scss";
-import "../scss/contacts.scss";
-import "../scss/fonts.scss";
-import "../scss/header.scss";
-import "../scss/info.scss";
-import "../scss/inner-container.scss";
-import "../scss/keyframes.scss";
-import "../scss/languages-list.scss";
-import "../scss/layout.scss";
-import "../scss/navigation.scss";
-import "../scss/normalize.scss";
-import "../scss/order-btn.scss";
-import "../scss/overlay.scss";
-import "../scss/page-footer.scss";
-import "../scss/page-main.scss";
-import "../scss/pagination.scss";
-import "../scss/prices.scss";
-import "../scss/prices-policy.scss";
-import "../scss/repair.scss";
-import "../scss/social-buttons.scss";
-import "../scss/swiper-bundle.scss";
-import "../scss/swiper-pagination-bullet.scss";
-import "../scss/swiper-toggle.scss";
-import "../scss/user-menu.scss";
-import "../scss/wrapper.scss";
+import '../scss/index.scss';
+
 
 document.addEventListener('DOMContentLoaded', () =>{
 const brandsSlider = document.querySelector('.brands__swiper');
 
 let brandsSwiper;
+const mobile = window.matchMedia('(max-width: 767px)');
+const notMobile = window.matchMedia('(min-width: 768px)');
 
 function mobileBrandsSlider() {
-    if (window.innerWidth < 767 && brandsSlider.dataset.mobile == 'false') {
+    if (mobile.matches && !brandsSlider.dataset.mobile) {
         brandsSwiper = new Swiper(brandsSlider, {
             slidesPerView: 1.3,
             spaceBetween: 16,
@@ -57,11 +30,11 @@ function mobileBrandsSlider() {
             }
         });
 
-        brandsSlider.dataset.mobile = 'true';
+        brandsSlider.dataset.mobile;
     }
 
-    if (window.innerWidth > 767) {
-        brandsSlider.dataset.mobile = 'false';
+    if (notMobile.matches) {
+        !brandsSlider.dataset.mobile;
         
         if (brandsSlider.classList.contains('swiper-initialized')) {
          brandsSwiper.destroy();   
@@ -77,20 +50,20 @@ window.addEventListener('resize', () => {
 })
 
 
-let brandsButton = document.querySelector('.arrows-btn');
+// let brandsButton = document.querySelector('.arrows-btn');
 
-brandsButton.addEventListener ('click', function () {
-    brandsSlider.classList.toggle('swiper-toggle');
-    if(!brandsButton.dataset.trigger) {
-        brandsButton.textContent = 'Скрыть';
-        brandsButton.dataset.trigger = 'false';
-        brandsButton.classList.add('arrows-btn--clicked');
-    } else {
-        brandsButton.textContent = brandsButton.dataset.text;
-        brandsButton.dataset.trigger = '';
-        brandsButton.classList.remove('arrows-btn--clicked');
-    } 
-});
+// brandsButton.addEventListener ('click', function () {
+//     brandsSlider.classList.toggle('swiper-toggle');
+//     if(!brandsButton.dataset.trigger) {
+//         brandsButton.textContent = 'Скрыть';
+//         brandsButton.dataset.trigger = 'false';
+//         brandsButton.classList.add('arrows-btn--clicked');
+//     } else {
+//         brandsButton.textContent = brandsButton.dataset.text;
+//         brandsButton.dataset.trigger = '';
+//         brandsButton.classList.remove('arrows-btn--clicked');
+//     } 
+// });
 
 
 const repairSlider = document.querySelector('.repair__swiper');
@@ -136,20 +109,47 @@ function mobileRepairSlider () {
     mobileRepairSlider();
 })
 
-let repairButton = document.querySelector('.repair__arrows-btn');
+function clickToExpand(block, btn) {
+    let btnElem = document.querySelector('.' + btn);
+    let blockElem = document.querySelector('.' + block);
 
-repairButton.addEventListener ('click', function () {
-    repairSlider.classList.toggle('repair-list__toggle');
-    if(!repairButton.dataset.trigger) {
-        repairButton.textContent = 'Скрыть';
-        repairButton.dataset.trigger = 'false';
-        repairButton.classList.add('repair__arrows-btn--clicked');
-    } else {
-        repairButton.textContent = repairButton.dataset.text;
-        repairButton.dataset.trigger = '';
-        repairButton.classList.remove('repair__arrows-btn--clicked');
-    } 
-});
+    btnElem.onclick = function() {
+        let expand = false;
+        let startValueBtn = btnElem.textContent;
+
+        return function(e) {
+            e.preventDefault();
+            expand = !expand;
+            blockElem.classList.toggle(block + '--toggle');
+            btnElem.classList.toggle(btn + '--clicked');
+
+            if (expand) {
+                btnElem.textContent = 'Скрыть';
+            } else {
+                btnElem.textContent = startValueBtn;
+            }
+        }
+    }();
+}
+
+clickToExpand('brands__swiper', 'arrows-btn');
+clickToExpand('repair__swiper', 'repair__arrows-btn');
+
+
+// let repairButton = document.querySelector('.repair__arrows-btn');
+
+// repairButton.addEventListener ('click', function () {
+//     repairSlider.classList.toggle('repair-list__toggle');
+//     if(!repairButton.dataset.trigger) {
+//         repairButton.textContent = 'Скрыть';
+//         repairButton.dataset.trigger = 'false';
+//         repairButton.classList.add('repair__arrows-btn--clicked');
+//     } else {
+//         repairButton.textContent = repairButton.dataset.text;
+//         repairButton.dataset.trigger = '';
+//         repairButton.classList.remove('repair__arrows-btn--clicked');
+//     } 
+// });
 
 const pricesSlider = document.querySelector('.prices__table');
 let pricesSwiper;
@@ -197,18 +197,18 @@ let burgerClose = document.querySelector('.aside-header__icon');
 
 
     burger.addEventListener('click', function () {
-            aside.style.left = 0;
+            aside.style.transform = 'translate(0)';
             overlay.style.zIndex = 1;
     })
 
     burgerClose.addEventListener('click', function () {
-            aside.style.left = '-500px';
+            aside.style.transform = 'translate(-500px)';
             overlay.style.zIndex = -1;
     })
 
     document.addEventListener('keydown', function (a) {
         if (a.key === 'Escape') {
-            aside.style.left = '-500px';
+            aside.style.left = 'translate(-500px)';
             overlay.style.zIndex = -1;
         }
     })
@@ -222,11 +222,11 @@ readMore.addEventListener('click', function () {
     if (!readMore.dataset.trigger) {
         readMore.textContent = 'Скрыть';
         readMore.dataset.trigger = 'false';
-        infoText.style.height = '380px';
+        infoText.style.height = 'auto';
         readMore.classList.add('info__readmore--clicked');
     } else {
         readMore.textContent = readMore.dataset.text;
-        infoText.style.height = '100px';
+        infoText.style.height = '90px';
         readMore.dataset.trigger = '';
         readMore.classList.remove('info__readmore--clicked'); 
     }
@@ -237,18 +237,18 @@ let modalFeedback = document.querySelector('.aside-feedback');
 let modalFeedbackBurgerClose = document.querySelector('.aside-feedback__burger')
  
     asideChatButton.addEventListener('click', function () {
-        modalFeedback.style.right = 0;
+        modalFeedback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
     })
 
     modalFeedbackBurgerClose.addEventListener('click', function () {
-        modalFeedback.style.right = '-1000px';
+        modalFeedback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            modalFeedback.style.right = '-1000px';
+            modalFeedback.style.transform = 'translate(1000px)';
             overlay.style.zIndex = -1;  
         }
     })
@@ -256,18 +256,18 @@ let modalFeedbackBurgerClose = document.querySelector('.aside-feedback__burger')
 let headerChatButton = document.querySelector('.header__chat');
 
     headerChatButton.addEventListener('click', function () {
-        modalFeedback.style.right = 0;
+        modalFeedback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
     })
 
     modalFeedbackBurgerClose.addEventListener('click', function () {
-        modalFeedback.style.right = '-1000px';
+        modalFeedback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            modalFeedback.style.right = '-1000px';
+            modalFeedback.transform = 'translate(1000px)';
             overlay.style.zIndex = -1;  
         }
     })
@@ -278,18 +278,18 @@ let modalCallback = document.querySelector('.aside-callback');
 let modalCallbackBurgerClose = document.querySelector('.aside-callback__burger');
 
     asideCallButton.addEventListener('click', function () {
-        modalCallback.style.right = 0;
+        modalCallback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
     })
 
     modalCallbackBurgerClose.addEventListener('click', function () {
-        modalCallback.style.right = '-1000px';
+        modalCallback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            modalCallback.style.right = '-1000px';
+            modalCallback.style.transform = 'translate(1000px)';;
             overlay.style.zIndex = -1;  
         }
     })
@@ -297,18 +297,18 @@ let modalCallbackBurgerClose = document.querySelector('.aside-callback__burger')
 let headerCallButton = document.querySelector('.header__call');
 
     headerCallButton.addEventListener('click', function () {
-        modalCallback.style.right = 0;
+        modalCallback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
     })
 
     modalCallbackBurgerClose.addEventListener('click', function () {
-        modalCallback.style.right = '-1000px';
+        modalCallback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            modalFeedback.style.right = '-1000px';
+            modalFeedback.style.transform = 'translate(1000px)';
             overlay.style.zIndex = -1;  
         }
     })

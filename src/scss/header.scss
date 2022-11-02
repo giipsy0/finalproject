@@ -33,6 +33,7 @@ $color-white: #FFFFFF;
 	}
 	&__socials {
 		display: none;
+        cursor: pointer;
 	}
 	&__title {
 		padding-left: 16px;
@@ -71,6 +72,7 @@ $color-white: #FFFFFF;
         align-items: center;
         gap: 16px;
         margin-left: 20px;
+        cursor: pointer;
     }    
 
     .header__info::before {

@@ -14,7 +14,8 @@ $color-light-aqua: #D9FFF5;
 	position: fixed;
 	z-index: 300;
 	box-shadow: 16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
-	right: -1000px;
+	transform: translateX(1000px);
+	right: 0;
 	top: 0;
 	transition: 0.5s;
 	&__container {
@@ -130,6 +131,7 @@ $color-light-aqua: #D9FFF5;
 			border-radius: 16px;
 			font-weight: 600;
 			margin-left: auto;
+			cursor: pointer;
 			&::after {
 				content: '';
 				display: inline-block;

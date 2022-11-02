@@ -10,7 +10,7 @@ $color-bright-aqua: #41F6D7;
 		margin-bottom: 16px;
 	}
 	&__text {
-		height: 100px;
+		height: 90px;
 		margin-top: 0;
 		margin-bottom: 16px;
 		font-family: 'TT Lakes';
@@ -30,6 +30,7 @@ $color-bright-aqua: #41F6D7;
 		letter-spacing: -0.2px;
 		color: $color-graphite;
 		position: relative;
+		cursor: pointer;
 		&::before {
 			content: '';
 			position: absolute;
@@ -93,8 +94,9 @@ $color-bright-aqua: #41F6D7;
     }
     
      .info__text {
-         line-height: 20px;
-         padding-top: 8px;
+		height: 160px;
+        line-height: 20px;
+        padding-top: 8px;
     }
 
     .info {

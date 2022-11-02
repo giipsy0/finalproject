@@ -5,6 +5,7 @@ $color-pink: #FF3E79;
 	background-color: $color-white;
 	border: 3px solid $color-pink;
 	color: $color-pink;
+    cursor: pointer;
 	&::after {
 		content: '';
 		display: inline-block;

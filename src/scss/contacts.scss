@@ -7,6 +7,10 @@ $color-graphite: #1B1C21;
 	&__social-buttons {
 		display: flex;
 		gap: 16px;
+		cursor: pointer;
+	}
+	&__social-buttons {
+		cursor: pointer;
 	}
 	&__email {
 		font-family: 'TT Lakes';

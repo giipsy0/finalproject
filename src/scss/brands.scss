@@ -51,10 +51,14 @@ $color-background-gray: #F8F8F8;
 			align-items: center;
 			justify-content: space-between;
 			width: 100%;
+			cursor: pointer;
 			img:nth-child(2):hover {
 				transform: scale(1.2);
 			}
 		}
+		&--toggle {
+            height: auto;
+        }
 	}
 }
 
@@ -65,6 +69,10 @@ $color-background-gray: #F8F8F8;
         padding-left: 24px;
         gap: 16px 24px;
     }
+
+	.brands__swiper--toggle {
+		height: auto;
+	}
     
     .brands__swiper-slide {
         min-width: 224px;
