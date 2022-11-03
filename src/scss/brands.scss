@@ -26,7 +26,6 @@ $color-background-gray: #F8F8F8;
 		background-color: $color-light-gray;
 		position: relative;
 		transition: 1s;
-		height: 200px;
 		&-wrapper {
 			display: flex;
 			padding-top: 16px;
@@ -69,6 +68,10 @@ $color-background-gray: #F8F8F8;
         padding-left: 24px;
         gap: 16px 24px;
     }
+
+	.brands__swiper {
+		height: 200px;
+	}
 
 	.brands__swiper--toggle {
 		height: auto;
