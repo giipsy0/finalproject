@@ -167,14 +167,13 @@ let burgerClose = document.querySelector('.aside-header__icon');
     burger.addEventListener('click', function () {
             aside.style.transform = 'translate(0)';
             overlay.style.zIndex = 1;
-            aside.focus();
+            aside.querySelector('.aside__burger-close').focus();
             document.body.style = 'overflow: hidden';
     })
 
     burgerClose.addEventListener('click', function () {
             aside.style.transform = 'translate(-500px)';
             overlay.style.zIndex = -1;
-            aside.blur();
             document.body.removeAttribute('style');
     })
 
@@ -182,7 +181,6 @@ let burgerClose = document.querySelector('.aside-header__icon');
         if (a.key === 'Escape') {
             aside.style.transform = 'translate(-500px)';
             overlay.style.zIndex = -1;
-            aside.blur();
             document.body.removeAttribute('style');
         }
     })
@@ -194,14 +192,14 @@ let modalFeedbackBurgerClose = document.querySelector('.aside-feedback__burger')
     asideChatButton.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
-        modalFeedback.focus();
+        modalFeedback.querySelector('.aside-feedback__form-name').focus();
         document.body.style = 'overflow: hidden';
     })
 
     modalFeedbackBurgerClose.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
-        modalFeedback.blur();
+        
         document.body.removeAttribute('style');
     })
 
@@ -209,7 +207,6 @@ let modalFeedbackBurgerClose = document.querySelector('.aside-feedback__burger')
         if (e.key === 'Escape') {
             modalFeedback.style.transform = 'translate(1000px)';
             overlay.style.zIndex = -1;
-            modalFeedback.blur();
             document.body.removeAttribute('style');
         }
     })
@@ -219,22 +216,20 @@ let headerChatButton = document.querySelector('.header__chat');
     headerChatButton.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
-        modalFeedback.focus();
+        modalFeedback.querySelector('.aside-feedback__form-name').focus();
         document.body.style = 'overflow: hidden';
     })
 
     modalFeedbackBurgerClose.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
-        modalFeedback.blur();
         document.body.removeAttribute('style');
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             modalFeedback.transform = 'translate(1000px)';
-            overlay.style.zIndex = -1; 
-            modalFeedback.blur();
+            overlay.style.zIndex = -1;
             document.body.removeAttribute('style');
         }
     })
@@ -247,14 +242,13 @@ let modalCallbackBurgerClose = document.querySelector('.aside-callback__burger')
     asideCallButton.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
-        modalCallback.focus();
+        modalCallback.querySelector('.aside-callback__form-call').focus();
         document.body.style = 'overflow: hidden';
     })
 
     modalCallbackBurgerClose.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
-        modalCallback.blur();
         document.body.removeAttribute('style');
     })
 
@@ -262,7 +256,6 @@ let modalCallbackBurgerClose = document.querySelector('.aside-callback__burger')
         if (e.key === 'Escape') {
             modalCallback.style.transform = 'translate(1000px)';;
             overlay.style.zIndex = -1;
-            modalCallback.blur();
             document.body.removeAttribute('style');
         }
     })
@@ -272,14 +265,13 @@ let headerCallButton = document.querySelector('.header__call');
     headerCallButton.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
-        modalCallback.focus();
+        modalCallback.querySelector('.aside-callback__form-call').focus();
         document.body.style = 'overflow: hidden';
     })
 
     modalCallbackBurgerClose.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
-        modalCallback.blur();
         document.body.removeAttribute('style');
     })
 
@@ -287,7 +279,6 @@ let headerCallButton = document.querySelector('.header__call');
         if (e.key === 'Escape') {
             modalFeedback.style.transform = 'translate(1000px)';
             overlay.style.zIndex = -1; 
-            modalCallback.blur(); 
             document.body.removeAttribute('style');
         }
     })
