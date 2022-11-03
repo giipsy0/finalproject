@@ -79,10 +79,10 @@ $color-aqua: #41F6D7;
 
     .aside {
         box-shadow: none;
-        left: 0 !important;
+        left: 0;
         width: 320px;
 		min-height: 1024px;
-		transform: translateX(0);
+		transform: translateX(0) !important;
     }
 
 	.aside__nav-content {

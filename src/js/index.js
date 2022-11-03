@@ -297,9 +297,6 @@ let headerCallButton = document.querySelector('.header__call');
         modalCallback.style.transform = 'translate(1000px)';
         aside.style.transform = 'translate(-500px)';
         overlay.style.zIndex = -1;
-        aside.blur();
-        modalCallback.blur();
-        modalFeedback.blur();
         document.body.removeAttribute('style');
     })
 })
