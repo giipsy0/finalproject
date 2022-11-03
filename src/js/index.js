@@ -49,28 +49,11 @@ window.addEventListener('resize', () => {
     mobileBrandsSlider();
 })
 
-
-// let brandsButton = document.querySelector('.arrows-btn');
-
-// brandsButton.addEventListener ('click', function () {
-//     brandsSlider.classList.toggle('swiper-toggle');
-//     if(!brandsButton.dataset.trigger) {
-//         brandsButton.textContent = 'Скрыть';
-//         brandsButton.dataset.trigger = 'false';
-//         brandsButton.classList.add('arrows-btn--clicked');
-//     } else {
-//         brandsButton.textContent = brandsButton.dataset.text;
-//         brandsButton.dataset.trigger = '';
-//         brandsButton.classList.remove('arrows-btn--clicked');
-//     } 
-// });
-
-
 const repairSlider = document.querySelector('.repair__swiper');
 let repairSwiper;
 
 function mobileRepairSlider () {
-    if (window.innerWidth < 767 && repairSlider.dataset.mobile == 'false') {
+    if (mobile.matches && !repairSlider.dataset.mobile) {
         repairSwiper = new Swiper (repairSlider, {
             slidesPerView: 1.3,
             spaceBetween: 16,
@@ -91,11 +74,11 @@ function mobileRepairSlider () {
             }
         });
 
-        repairSlider.dataset.mobile = 'true';
+        repairSlider.dataset.mobile;
 
         }
-        if (window.innerWidth > 767) {
-            repairSlider.dataset.mobile = 'false';
+        if (notMobile.matches) {
+            !repairSlider.dataset.mobile;
 
             if (repairSlider.classList.contains('swiper-initialized')) {
                 repairSwiper.destroy();
@@ -109,21 +92,21 @@ function mobileRepairSlider () {
     mobileRepairSlider();
 })
 
-function clickToExpand(block, btn) {
+function clickToShow(block, btn) {
     let btnElem = document.querySelector('.' + btn);
     let blockElem = document.querySelector('.' + block);
 
     btnElem.onclick = function() {
-        let expand = false;
+        let show = false;
         let startValueBtn = btnElem.textContent;
 
         return function(e) {
             e.preventDefault();
-            expand = !expand;
+            show = !show;
             blockElem.classList.toggle(block + '--toggle');
             btnElem.classList.toggle(btn + '--clicked');
 
-            if (expand) {
+            if (show) {
                 btnElem.textContent = 'Скрыть';
             } else {
                 btnElem.textContent = startValueBtn;
@@ -132,30 +115,15 @@ function clickToExpand(block, btn) {
     }();
 }
 
-clickToExpand('brands__swiper', 'arrows-btn');
-clickToExpand('repair__swiper', 'repair__arrows-btn');
-
-
-// let repairButton = document.querySelector('.repair__arrows-btn');
-
-// repairButton.addEventListener ('click', function () {
-//     repairSlider.classList.toggle('repair-list__toggle');
-//     if(!repairButton.dataset.trigger) {
-//         repairButton.textContent = 'Скрыть';
-//         repairButton.dataset.trigger = 'false';
-//         repairButton.classList.add('repair__arrows-btn--clicked');
-//     } else {
-//         repairButton.textContent = repairButton.dataset.text;
-//         repairButton.dataset.trigger = '';
-//         repairButton.classList.remove('repair__arrows-btn--clicked');
-//     } 
-// });
+clickToShow('brands__swiper', 'arrows-btn');
+clickToShow('repair__swiper', 'repair__arrows-btn');
+clickToShow('info__text', 'info__readmore');
 
 const pricesSlider = document.querySelector('.prices__table');
 let pricesSwiper;
 
 function mobilePricesSlider () {
-    if (window.innerWidth < 767 && pricesSlider.dataset.mobile == 'false') {
+    if (mobile.matches && !pricesSlider.dataset.mobile) {
         pricesSwiper = new Swiper (pricesSlider, {
             slidesPerView: 1.2,
             spaceBetween: 16,
@@ -172,11 +140,11 @@ function mobilePricesSlider () {
             }
         });
 
-        pricesSlider.dataset.mobile = 'true';
+        pricesSlider.dataset.mobile;
 
         }
-        if (window.innerWidth > 767) {
-            pricesSlider.dataset.mobile = 'false';
+        if (notMobile.matches) {
+            !pricesSlider.dataset.mobile;
 
             if (pricesSlider.classList.contains('swiper-initialized')) {
                 pricesSwiper.destroy();
@@ -199,38 +167,25 @@ let burgerClose = document.querySelector('.aside-header__icon');
     burger.addEventListener('click', function () {
             aside.style.transform = 'translate(0)';
             overlay.style.zIndex = 1;
+            aside.focus();
+            document.body.style = 'overflow: hidden';
     })
 
     burgerClose.addEventListener('click', function () {
             aside.style.transform = 'translate(-500px)';
             overlay.style.zIndex = -1;
+            aside.blur();
+            document.body.removeAttribute('style');
     })
 
     document.addEventListener('keydown', function (a) {
         if (a.key === 'Escape') {
-            aside.style.left = 'translate(-500px)';
+            aside.style.transform = 'translate(-500px)';
             overlay.style.zIndex = -1;
+            aside.blur();
+            document.body.removeAttribute('style');
         }
     })
-
-
-
-let readMore = document.querySelector('.info__readmore');
-let infoText = document.querySelector('.info__text');
-
-readMore.addEventListener('click', function () {
-    if (!readMore.dataset.trigger) {
-        readMore.textContent = 'Скрыть';
-        readMore.dataset.trigger = 'false';
-        infoText.style.height = 'auto';
-        readMore.classList.add('info__readmore--clicked');
-    } else {
-        readMore.textContent = readMore.dataset.text;
-        infoText.style.height = '90px';
-        readMore.dataset.trigger = '';
-        readMore.classList.remove('info__readmore--clicked'); 
-    }
-})
 
 let asideChatButton = document.querySelector('.aside__chat');
 let modalFeedback = document.querySelector('.aside-feedback');
@@ -239,17 +194,23 @@ let modalFeedbackBurgerClose = document.querySelector('.aside-feedback__burger')
     asideChatButton.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
+        modalFeedback.focus();
+        document.body.style = 'overflow: hidden';
     })
 
     modalFeedbackBurgerClose.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
+        modalFeedback.blur();
+        document.body.removeAttribute('style');
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             modalFeedback.style.transform = 'translate(1000px)';
-            overlay.style.zIndex = -1;  
+            overlay.style.zIndex = -1;
+            modalFeedback.blur();
+            document.body.removeAttribute('style');
         }
     })
 
@@ -258,17 +219,23 @@ let headerChatButton = document.querySelector('.header__chat');
     headerChatButton.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
+        modalFeedback.focus();
+        document.body.style = 'overflow: hidden';
     })
 
     modalFeedbackBurgerClose.addEventListener('click', function () {
         modalFeedback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
+        modalFeedback.blur();
+        document.body.removeAttribute('style');
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             modalFeedback.transform = 'translate(1000px)';
-            overlay.style.zIndex = -1;  
+            overlay.style.zIndex = -1; 
+            modalFeedback.blur();
+            document.body.removeAttribute('style');
         }
     })
 
@@ -280,17 +247,23 @@ let modalCallbackBurgerClose = document.querySelector('.aside-callback__burger')
     asideCallButton.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
+        modalCallback.focus();
+        document.body.style = 'overflow: hidden';
     })
 
     modalCallbackBurgerClose.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
+        modalCallback.blur();
+        document.body.removeAttribute('style');
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             modalCallback.style.transform = 'translate(1000px)';;
-            overlay.style.zIndex = -1;  
+            overlay.style.zIndex = -1;
+            modalCallback.blur();
+            document.body.removeAttribute('style');
         }
     })
 
@@ -299,25 +272,35 @@ let headerCallButton = document.querySelector('.header__call');
     headerCallButton.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(0)';
         overlay.style.zIndex = 101;
+        modalCallback.focus();
+        document.body.style = 'overflow: hidden';
     })
 
     modalCallbackBurgerClose.addEventListener('click', function () {
         modalCallback.style.transform = 'translate(1000px)';
         overlay.style.zIndex = -1;
+        modalCallback.blur();
+        document.body.removeAttribute('style');
     })
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             modalFeedback.style.transform = 'translate(1000px)';
-            overlay.style.zIndex = -1;  
+            overlay.style.zIndex = -1; 
+            modalCallback.blur(); 
+            document.body.removeAttribute('style');
         }
     })
 
     overlay.addEventListener('click', function () {
-        modalFeedback.style.right = '-1000px';
-        modalCallback.style.right = '-1000px';
-        aside.style.left = '-500px';
+        modalFeedback.style.transform = 'translate(1000px)';
+        modalCallback.style.transform = 'translate(1000px)';
+        aside.style.transform = 'translate(-500px)';
         overlay.style.zIndex = -1;
+        aside.blur();
+        modalCallback.blur();
+        modalFeedback.blur();
+        document.body.removeAttribute('style');
     })
 })
 

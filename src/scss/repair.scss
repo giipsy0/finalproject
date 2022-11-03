@@ -68,8 +68,12 @@ $color-aqua: #41F6D7;
 
 @media screen and (min-width: 768px) {
     .repair__swiper {
-        max-height: 180px;
+        height: 180px;
         transition: 1s;
+    }
+
+    .repair__swiper--toggle {
+        height: auto;
     }
 
     .repair__swiper-wrapper {

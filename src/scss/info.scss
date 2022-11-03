@@ -21,6 +21,9 @@ $color-bright-aqua: #41F6D7;
 		overflow: hidden;
 		box-sizing: content-box;
 		transition: 0.8s;
+		&--toggle {
+			height: auto;
+		}
 	}
 	&__readmore {
 		margin-left: 32px;
@@ -98,6 +101,10 @@ $color-bright-aqua: #41F6D7;
         line-height: 20px;
         padding-top: 8px;
     }
+
+	.info__text--toggle {
+		height: auto;
+	}
 
     .info {
         display: flex;
